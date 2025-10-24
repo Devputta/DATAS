@@ -1,0 +1,46 @@
+POWER PIVOT & DAX(FILTERS AND CALCULATE)
+
+get started 
+
+select data table which u want to measure 
+
+right click on table --> new measure --> then it will appear 
+ 
+formula for total --> total = sum(table name [column name]) then hit enter 
+example ---> Total Boxes = sum(sales[Boxes])  (total number of boxes measure)
+
+shipment measure in sales --> each row in sales is a shipment (means 1 row is 1 shipment)
+example ---> Shipment Count = COUNTROWS(sales) (countrows is used to count the total numbers of rows in a table)
+
+dax measures are RESUABLITY 
+example --> Amount Per Shipment = [Total Amount]/[Shipment Count] or APS = sum(sales[Amount]) / countrows(sales)
+
+Build Once use anywhere 
+if function I DAX
+Example --> APS Target Achieved? = IF([Amount Per Shipment]>4800, "YES","NO")  (name of the column = if(column > 4800, true, false)
+fun tricks ---> APB Target Achieved? = IF([Total Amount]>4800, "😊","😓") 
+
+Count Of Product = COUNTROWS(products) --> this is kind Grouping alike in SQL (we have grouped sales person with product of their own)
+Count Of Product(R) = DISTINCTCOUNT(sales[Product]) --> this shows the how many product have been they own
+Low Box Shipment Count = CALCULATE([Shipment Count], sales[Boxes]<50) --> it will calculate or filters the below of 50 boxes of each product shipment count or (it means how much in each shipment count have been sold less then 50 boxes)
+LBS % = DIVIDE([Low Box Shipment Count], [Shipment Count])---> it shows the how much % of low boxes shipment has done 
+BAR Shipment = CALCULATE([Shipment Count], products[Category] = "Bars")---> it will shows the how many product bar(category) shipments has done in each shipment count
+BAE shipment % = DIVIDE([BAR Shipment],[Shipment Count])
+
+
+
+formulas:
+
+APB = [Total Amount] / [Total Boxes] it will count amount per each boxes in sales table 
+Another way is to use divide function for example APB2 = DIVIDE([Total Amount], [Total Boxes], "No Boxes") (Amount Per Boxes 2 = Numer, Deno, Alter)
+
+FUNCTIONS
+SUM
+COUNTROWS
+DIVIDE
+IF
+DISTINCTCOUNT
+MIN / MAX / MEDIAN / AVERAGE (ARTHMENTIC OPERATION)
+CALCULATE 
+
+.........................................................*********** measure are aggregated*********.....................................................................

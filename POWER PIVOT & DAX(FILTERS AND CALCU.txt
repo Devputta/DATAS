@@ -25,9 +25,27 @@ Count Of Product(R) = DISTINCTCOUNT(sales[Product]) --> this shows the how many 
 Low Box Shipment Count = CALCULATE([Shipment Count], sales[Boxes]<50) --> it will calculate or filters the below of 50 boxes of each product shipment count or (it means how much in each shipment count have been sold less then 50 boxes)
 LBS % = DIVIDE([Low Box Shipment Count], [Shipment Count])---> it shows the how much % of low boxes shipment has done 
 BAR Shipment = CALCULATE([Shipment Count], products[Category] = "Bars")---> it will shows the how many product bar(category) shipments has done in each shipment count
-BAE shipment % = DIVIDE([BAR Shipment],[Shipment Count])
+BAE shipment % = DIVIDE([BAR Shipment],[Shipment Count]) --> it will shows the bar shipment percentage 
+Americas shipment = CALCULATE([Shipment Count], locations[Region] = "Americas") this shows the shipment count of particular regain = Americas ( and this also overrides the filter in power bi application 
 
+ADDING COLUMNS WITH DAX --> DAX is not only used for new measure it also include the adding features into a columns like table tools
+Adding columns like weekdays amount -> which tells u that what is the amount is generated or revenue in weekdays 
 
+Weekdays = WEEKDAY(sales[Date])--> it will tells u that how many weekdays are there in numbers from 1 to 7
+row context --> *******
+Friday Amount = CALCULATE([Total Amount], sales[Weekdays] = 6) --> it will shows the amount of particular weekdays like for example Friday 6 which means Sunday is 1
+Another way to write a calculate 
+Friday Amount 2 = [Total Amount](sales[Weekdays]=6) --> with out mansion calculate it will tell u to do calculate it is updated version form or another short form instead of longer format  
+
+VARIABLES IN DAX
+AZAU Sales Amount = 
+    var NZAmount = CALCULATE([Total Amount], locations[Geo] = "New Zealand")
+    VAR AUAmount = CALCULATE([Total Amount], locations[Geo] = "Australia")
+RETURN
+    NZAmount + AUAmount
+this will tells u that it will add 2 region amount i single column using variables lie var and return and another way of doing the same calculation 
+
+AUAZ Sales = CALCULATE([Total Amount], locations[Geo] in {"New Zealand", "Australia"}) --> this is short way but confusing 
 
 formulas:
 
@@ -42,5 +60,6 @@ IF
 DISTINCTCOUNT
 MIN / MAX / MEDIAN / AVERAGE (ARTHMENTIC OPERATION)
 CALCULATE 
+Weekdays
 
 .........................................................*********** measure are aggregated*********.....................................................................

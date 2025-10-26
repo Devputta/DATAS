@@ -1,0 +1,29 @@
+FULL 80% OF DAX FORMULAS
+
+First DAX FORMULAS 
+DAX is language that used to calculate tings in Power BI(Power PIVOT) DAX full form "DATA ANALYSIS EXPRESSIONS"
+
+Total Amount = sum(shipments[Amount]) ---> it will Calculate the total amount of each product in shipment table and another one this is if u put amount in column chart it will automatically sum the entire amount of each product (auto calculative)
+
+Y do we NEED DaX
+
+in dax it will calculate explicitly 
+in auto it will calculate implicitly 
+in dax we can name any thing as title 
+in auto we can't do that
+
+Measure VS. Columns 
+
+what ever i measure using dax it will not add any extra columns in original dataset 
+it will only act as a temporary columns 
+
+MORE DaX FORMULAS
+
+Shipment Count = COUNTROWS(shipments) --> it will count the number of shipment in each product 
+
+DaX VS. EXCEL FUNCTION
+
+Pattern is same but some of few key function only  
+
+Evaluation Context 
+

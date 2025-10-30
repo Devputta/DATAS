@@ -1,3 +1,6 @@
+<img width="898" height="504" alt="Screenshot 2025-10-30 214912" src="https://github.com/user-attachments/assets/96dc5114-9d0a-466d-aea0-35e6fffe0e3e" />
+<img width="913" height="515" alt="Screenshot 2025-10-30 215103" src="https://github.com/user-attachments/assets/22dc5e6d-6fee-468f-9e4b-99fb7ea80a69" />
+
 # DATAS
 data analyst course
 
